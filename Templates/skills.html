@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Skill Portal</title>
+</head>
+
+<body>
+
+    {% if not career %}
+
+        <h1>Choose Your Career Path</h1>
+
+        <form method="POST">
+
+            <label>
+                <input type="radio" name="career" value="Cyber Security">
+                🛡️ Cyber Security
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="career" value="Data Scientist">
+                📊 Data Scientist
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="career" value="Web Developer">
+                🌐 Web Developer
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="career" value="Game Developer">
+                🎮 Game Developer
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="career" value="AI Developer">
+                🤖 AI Developer
+            </label>
+
+            <br><br>
+
+            <button type="submit">Continue</button>
+
+        </form>
+
+    {% else %}
+
+        <h1>{{ career }}</h1>
+
+        <h2>Skills Required</h2>
+
+        <form>
+
+            {% for skill in skills %}
+
+                <label>
+                    <input type="checkbox" name="skills" value="{{ skill }}">
+                    {{ skill }}
+                </label>
+
+                <br><br>
+
+            {% endfor %}
+
+        </form>
+
+    {% endif %}
+
+</body>
+
+</html>
